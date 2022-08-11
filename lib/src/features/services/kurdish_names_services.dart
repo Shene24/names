@@ -14,7 +14,9 @@ class KurdishNamesServices{
       'offset': '0',
 
   });
-   http.Response response = await http.get(_KurdishNamesUri);
-   
+   http.Response response = 
+   await http.get(_KurdishNamesUri).catchError((err)=> print(err));
+   print(response.body);
+   return response.body;
   }
 }
