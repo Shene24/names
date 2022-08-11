@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 class KurdishNamesServices{
   //https://github.com/DevelopersTree/nawikurdi
-  fetchListOfNames(){
+  Future fetchListOfNames()async{
     //TODO: create the URI
     //scheme: https,host: nawikurdi.com, path:api,
     Uri _KurdishNamesUri = Uri(
@@ -14,6 +14,7 @@ class KurdishNamesServices{
       'offset': '0',
 
   });
-    http.get(_KurdishNamesUri);
+   http.Response response = await http.get(_KurdishNamesUri);
+   
   }
 }
