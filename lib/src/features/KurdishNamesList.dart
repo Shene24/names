@@ -28,23 +28,26 @@ class _KurdishNamesListState extends State<KurdishNamesList> {
           ),
           Expanded(
             child: Container(
-              //color: Colors.red,
-              child: FutureBuilder(
-              future: names.fetchListOfNames(),
-              builder:( (context, snapshot){
-                if(snapshot.connectionState== ConnectionState.waiting){
-                  return CupertinoActivityIndicator();
-                }else if(snapshot.hasError){
-                  return Text(snapshot.error.toString());
-                  
-                }else if(snapshot.data==null){
-                  return Text('NO DATA');
-
-                }
-                  return Text(snapshot.data.toString());
-      }
-      ),
-      ) ,
+              
+              child: Directionality(
+                textDirection: TextDirection.rtl,
+                child: FutureBuilder(
+                future: names.fetchListOfNames(),
+                builder:( (context, snapshot){
+                  if(snapshot.connectionState== ConnectionState.waiting){
+                    return CupertinoActivityIndicator();
+                  }else if(snapshot.hasError){
+                    return Text(snapshot.error.toString());
+                    
+                  }else if(snapshot.data==null){
+                    return Text('NO DATA');
+              
+                  }
+                    return Text(snapshot.data.toString());
+                    }
+                    ),
+                    ),
+              ) ,
             ),
           )
         ],
