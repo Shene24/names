@@ -1,32 +1,34 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:names/src/features/services/kurdish_names_services.dart';
 
 
 class KurdishNamesList extends StatefulWidget {
+
+
    KurdishNamesList({Key? key}) : super(key: key);
-
-  KurdishNamesServices names = KurdishNamesServices();
-
 
   @override
   State<KurdishNamesList> createState() => _KurdishNamesListState();
 }
 
 class _KurdishNamesListState extends State<KurdishNamesList> {
+  KurdishNamesServices names = KurdishNamesServices();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Column(
         children: [
-          Text('title'),
           Container(
+            padding: EdgeInsets.all(20),
+            child: Text('title'),
 
           ),
           Expanded(
             child: Container(
-              color: Colors.red,
+              //color: Colors.red,
               child: FutureBuilder(
               future: names.fetchListOfNames(),
               builder:( (context, snapshot){
