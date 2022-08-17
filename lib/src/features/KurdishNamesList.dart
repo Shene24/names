@@ -49,7 +49,10 @@ class _KurdishNamesListState extends State<KurdishNamesList> {
                       //it's not null !
                       itemCount: snapshot.data!.names.length ,
                       itemBuilder: (context, index) {
-                        return Text(snapshot.data!.names[index].name);
+                        return ExpansionTile(title: 
+                        Text(snapshot.data!.names[index].name),
+                        children: [Text(snapshot.data!.names[index].desc)],
+                        );
                         
                       });
                     }

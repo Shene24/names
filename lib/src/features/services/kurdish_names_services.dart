@@ -22,6 +22,7 @@ class KurdishNamesServices{
   
    http.Response response = 
    await http.get(_KurdishNamesUri).catchError((err)=> print(err));
+   //or http.get(Uri.parse('https:///nawikurdi.com/api?limit=5&gender=F&offset=0'))
    KurdishNames _KurdishNames =  KurdishNames.fromJson(response.body);
    print(response.body);
    return _KurdishNames;
