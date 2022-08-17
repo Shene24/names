@@ -1,6 +1,5 @@
-//import 'package:flutter/material.dart';
+
 import 'package:http/http.dart' as http;
-//import 'package:names/app.dart';
 import 'package:names/src/features/models/names_data_model.dart';
 class KurdishNamesServices{
   //https://github.com/DevelopersTree/nawikurdi

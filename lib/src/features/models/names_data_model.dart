@@ -29,9 +29,9 @@ class KurdishNames {
 
   factory KurdishNames.fromMap(Map<String, dynamic> map) {
     return KurdishNames(
-      names: List<Name>.from((map['names'] as List<int>).map<Name>((x) => Name.fromMap(x as Map<String,dynamic>),),),
+      names: List<Name>.from((map['names'] as List<dynamic>).map<Name>((x) => Name.fromMap(x as Map<String,dynamic>),),),
       recordCount: map['recordCount'].toInt() as int,
-    );
+    );     
   }
 
   String toJson() => json.encode(toMap());

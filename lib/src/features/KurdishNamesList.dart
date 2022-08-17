@@ -33,7 +33,7 @@ class _KurdishNamesListState extends State<KurdishNamesList> {
               
               child: Directionality(
                 textDirection: TextDirection.rtl,
-                child: FutureBuilder(
+                child: FutureBuilder<KurdishNames>(
                 future: names.fetchListOfNames(),
                 builder:( (context, snapshot){
                   if(snapshot.connectionState== ConnectionState.waiting){
@@ -45,7 +45,13 @@ class _KurdishNamesListState extends State<KurdishNamesList> {
                     return Text('NO DATA');
               
                   }
-                    return Text(snapshot.data.toString());
+                    return ListView.builder(
+                      //it's not null !
+                      itemCount: snapshot.data!.names.length ,
+                      itemBuilder: (context, index) {
+                        return Text(snapshot.data!.names[index].name);
+                        
+                      });
                     }
                     ),
                     ),
