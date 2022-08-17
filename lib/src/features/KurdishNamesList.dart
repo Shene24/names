@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:names/src/features/services/kurdish_names_services.dart';
+import 'package:names/src/features/models/names_data_model.dart';
 
 
 class KurdishNamesList extends StatefulWidget {
@@ -22,12 +23,13 @@ class _KurdishNamesListState extends State<KurdishNamesList> {
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Text('title'),
 
           ),
           Expanded(
             child: Container(
+              padding: EdgeInsets.all(20),
               
               child: Directionality(
                 textDirection: TextDirection.rtl,
