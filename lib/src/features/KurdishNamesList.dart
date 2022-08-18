@@ -23,9 +23,17 @@ class _KurdishNamesListState extends State<KurdishNamesList> {
       body: Column(
         children: [
           Container(
-            padding: const EdgeInsets.all(20),
-            child: Text('title'),
 
+             padding: EdgeInsets.all(20),
+             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Gender"),
+                Text("Sort by"),
+                Text('Limit'),
+              ],
+             ),
+           
           ),
           Expanded(
             child: Container(
