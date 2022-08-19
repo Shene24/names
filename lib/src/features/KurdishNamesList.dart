@@ -29,7 +29,15 @@ class _KurdishNamesListState extends State<KurdishNamesList> {
              child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Gender"),
+              GestureDetector (child: Text("Gender"),
+              onTap: () => setState(() {
+              if (gender =="M")  {
+                gender= "F";
+              }else if(gender=="F"){
+              gender= "M";
+                
+  }}),),
+              
                 Text("Sort by"),
                 Text('Limit'),
               ],
@@ -43,7 +51,7 @@ class _KurdishNamesListState extends State<KurdishNamesList> {
               child: Directionality(
                 textDirection: TextDirection.rtl,
                 child: FutureBuilder<KurdishNames>(
-                future: names.fetchListOfNames(),
+                future: names.fetchListOfNames(gender),
                 builder:( (context, snapshot){
                   if(snapshot.connectionState== ConnectionState.waiting){
                     return CupertinoActivityIndicator();
@@ -58,9 +66,18 @@ class _KurdishNamesListState extends State<KurdishNamesList> {
                       //it's not null !
                       itemCount: snapshot.data!.names.length ,
                       itemBuilder: (context, index) {
-                        return ExpansionTile(title: 
-                        Text(snapshot.data!.names[index].name),
-                        children: [Text(snapshot.data!.names[index].desc)],
+                        return ExpansionTile(
+                          leading:Text(
+                            snapshot.data!.names[index].positive_votes.toString()),
+                          title: Text(snapshot.data!.names[index].name),
+                        children:[
+                          Text(snapshot.data!.names[index].desc),
+                          Row(children: [
+                            ElevatedButton.icon(onPressed: (){},
+                             icon: Icon(Icons.thumb_up_sharp), 
+                             label: Text('vote up'))
+                          ],)
+                          ],
                         );
                         
                       });
