@@ -16,6 +16,7 @@ class KurdishNamesList extends StatefulWidget {
 
 class _KurdishNamesListState extends State<KurdishNamesList> {
   KurdishNamesServices names = KurdishNamesServices();
+  String gender = "F";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
